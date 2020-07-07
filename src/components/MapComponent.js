@@ -5,8 +5,8 @@ import mapStyles from './mapStyles.json';
 
 const MapComponent = withScriptjs(withGoogleMap((props) =>
 		<GoogleMap
-			defaultZoom={8}
-			defaultCenter={{ lat: -34.397, lng: 150.644 }}
+			defaultZoom={2}
+			defaultCenter={{ lat: 39.850034, lng: -176.058742 }}
 			defaultOptions={{ styles: mapStyles }}
 		>
 			{/* {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />} */}
