@@ -7,11 +7,11 @@ const MapPage = () => {
 	return (
 		<div>
 			<MapComponent 
-				style='mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova'
-				containerStyle={{
-					height: '30vh',
-					width: '50vw'
-				}}
+				// style='mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova'
+				// containerStyle={{
+				// 	height: '30vh',
+				// 	width: '50vw'
+				// }}
 			/>
 			<p>
 				Hello mapo.
