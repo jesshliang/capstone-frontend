@@ -6,13 +6,7 @@ const MapPage = () => {
 
 	return (
 		<div>
-			<MapComponent 
-				// style='mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova'
-				// containerStyle={{
-				// 	height: '30vh',
-				// 	width: '50vw'
-				// }}
-			/>
+			<MapComponent />
 			<p>
 				Hello mapo.
 			</p>
