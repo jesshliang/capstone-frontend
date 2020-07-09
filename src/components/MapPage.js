@@ -8,23 +8,16 @@ import {
   Link
 } from "react-router-dom";
 
-const MapPage = () => {
+const MapPage = (props) => {
 
 	return (
 		<div>
 			<nav>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					{/* <li>
-						<Link to="/map-page">Map</Link>
-					</li> */}
-				</ul>
+				<button onClick={ props.onLogoutCallback }>Log Out</button>
 			</nav>
 			<MapComponent />
 			<p>
-				Hello mapo.
+				
 			</p>
 		</div>
 	);

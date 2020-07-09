@@ -7,29 +7,27 @@ import {
   Link
 } from "react-router-dom";
 
-const Home = () => {
+const Home = (props) => {
 
-	const [usernameField, setUsernameField] = useState({ username: '' });
+	const [usernameField, setUsernameField] = useState('');
 
 	const onUpdateField = (event) => {
     const updatedUsername = {...usernameField};
-    updatedUsername[event.target.name] = event.target.value;
-		setUsernameField(updatedUsername);
+		setUsernameField(event.target.name);
 		console.log(usernameField);
+	};
+
+  const onLogin = (event) => {
+		event.preventDefault(); 
+    props.setUserCallback(true);
 	};
 	
-	const onLogin = (event) => {
-		event.preventDefault(); // Prevents form from trying to send to non-existent server.
-
-		console.log(usernameField);
-	};
-
 	return (
 		<nav>
 
 			<ul>
 				<li>
-					<Link to="/map-page">Map</Link>
+					{/* <Link to="/map-page">Map</Link> */}
 				</li>
 			</ul>
 
