@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,14 +11,32 @@ import {
 const Home = (props) => {
 
 	const [usernameField, setUsernameField] = useState('');
+	const BASE_URL = 'http://twitter.local:5000/';
 
 	const onUpdateField = (event) => {
 		setUsernameField(event.target.value);
 	};
 
   const onLogin = (event) => {
-		event.preventDefault(); 
-    props.setUserCallback(usernameField);
+		axios({
+      method: 'post',
+      url: BASE_URL,
+      params: {
+				username: usernameField,
+			},
+			headers: {
+				"Access-Control-Allow-Origin": "*"
+			}
+    })
+    .then(() => {
+      console.log("SUCCESS");
+    })
+    .catch((error) => {
+      console.log(error);
+		});
+		
+		event.preventDefault();
+		props.setUserCallback(usernameField);
 	};
 	
 	return (
