@@ -11,11 +11,11 @@ import './App.css';
 
 const App = () => {
 
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState('');
   
   const onLogout = (event) => {
 		event.preventDefault(); 
-    setUser(false);
+    setUser('');
 		console.log(user);
 	};
 
@@ -37,11 +37,11 @@ const App = () => {
     <div>
 
 
-      {(user === false) && 
+      {(user === '') && 
         <Home setUserCallback = { setUser } />
       }
-      {(user === true) && 
-        <Dashboard onLogoutCallback = { onLogout } />
+      {(user !== '') && 
+        <Dashboard onLogoutCallback = { onLogout } currentUser={ user } />
       }
     </div>
   );

@@ -8,6 +8,9 @@ const Dashboard = (props) => {
 		<div>
 			<header>
 				<nav>
+					<p>
+						username: { props.currentUser }
+					</p>
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
 				</nav>
 			</header>

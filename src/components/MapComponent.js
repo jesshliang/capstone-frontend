@@ -31,7 +31,11 @@ const MapComponent = () => {
 				
 				const marker = new mapboxgl.Marker()
 				.setLngLat([12.550343, 55.665957])
-				.addTo(map);
+        .addTo(map);
+
+        const marker2 = new mapboxgl.Marker()
+				.setLngLat([12.6561, 55.6381])
+        .addTo(map);
 			});
     };
 

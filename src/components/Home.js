@@ -12,14 +12,12 @@ const Home = (props) => {
 	const [usernameField, setUsernameField] = useState('');
 
 	const onUpdateField = (event) => {
-    const updatedUsername = {...usernameField};
-		setUsernameField(event.target.name);
-		console.log(usernameField);
+		setUsernameField(event.target.value);
 	};
 
   const onLogin = (event) => {
 		event.preventDefault(); 
-    props.setUserCallback(true);
+    props.setUserCallback(usernameField);
 	};
 	
 	return (
