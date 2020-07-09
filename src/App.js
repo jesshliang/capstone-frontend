@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from './components/Home';
-import MapPage from './components/MapPage';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
         <Home setUserCallback = { setUser } />
       }
       {(user === true) && 
-        <MapPage onLogoutCallback = { onLogout } />
+        <Dashboard onLogoutCallback = { onLogout } />
       }
     </div>
   );

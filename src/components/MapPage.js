@@ -1,23 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MapComponent from './MapComponent';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
-const MapPage = (props) => {
+const MapPage = () => {
 
 	return (
 		<div>
-			<nav>
-				<button onClick={ props.onLogoutCallback }>Log Out</button>
-			</nav>
 			<MapComponent />
 			<p>
-				
+				{/* Put the list of trips here */}
 			</p>
 		</div>
 	);
