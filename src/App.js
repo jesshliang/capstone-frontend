@@ -10,6 +10,11 @@ import MapPage from './components/MapPage';
 import './App.css';
 
 const App = () => {
+
+  const userLogin = (username) => {
+
+  };
+
   return (
     <Router>
       <div>
