@@ -1,32 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MapPage from './MapPage';
 import Trips from './Trips';
-import axios from 'axios';
+import './Dashboard.css';
 
 const Dashboard = (props) => {
-	// useEffect(() => {
-  //   axios.get('http://twitter.local:5000/user', { params: { username: props.currentUser } })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       props.setUserInformationCallback(response.data.username);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-	// }, []);
 
 	return (
 		<div id="dashboard">
 			<header>
-				<nav>
-					<p>
-
-						username: { props.currentUser } <br />
-						trips: { props.userInformation[0].coordinates } <br />
-					</p>
+				<h1>What's my App called?</h1>
+				<section>
+						username: { props.currentUser } / 
+						trips: { props.userInformation[0].coordinates } / 
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
-				</nav>
+				</section>
 			</header>
 			<main>
 				<MapPage />

@@ -5,17 +5,15 @@ import Trip from './Trip';
 const Trips = (props) => {
 
 	let allTrips = []
-  if (props.userInformation) {
-    allTrips = props.userInformation.map((trip) => {
-      return (
-				<Trip
-					// key={ trip.id }
-					date={ trip.date }
-					coordinates= { trip.coordinates }
-				/> 
-      );
-    });
-	};
+	allTrips = props.userInformation.map((trip) => {
+		return (
+			<Trip
+				key={ Math.random() }
+				date={ trip.date }
+				coordinates= { trip.coordinates }
+			/> 
+		);
+	});
 		
 	return (
 		<div>
