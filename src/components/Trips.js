@@ -16,7 +16,7 @@ const Trips = (props) => {
 	});
 		
 	return (
-		<div>
+		<div className='all-trips-container'>
 			hello ???
 			{ console.log(allTrips) }
 			{ allTrips }

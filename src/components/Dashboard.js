@@ -17,8 +17,8 @@ const Dashboard = (props) => {
 				</section>
 			</header>
 			<main>
-				<MapPage />
-				<Trips userInformation={ props.userInformation } />			
+					<MapPage />					
+					<Trips userInformation={ props.userInformation } />			
 			</main>
 		</div>
 	);
