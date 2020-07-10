@@ -6,18 +6,20 @@ import './Dashboard.css';
 
 const Dashboard = (props) => {
 
+	
+
 	return (
 		<div id="dashboard">
 			<header>
 				<h1>What's my App called?</h1>
 				<section>
 						username: { props.currentUser } / 
-						trips: { props.userInformation[0].coordinates } / 
+						trips: { props.userInformation[0].places } / 
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
 				</section>
 			</header>
-			<main>
-					<MapPage />					
+			<main id="dashboard__main_content">
+					<MapPage />
 					<Trips userInformation={ props.userInformation } />			
 			</main>
 		</div>

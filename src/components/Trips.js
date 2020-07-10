@@ -10,14 +10,13 @@ const Trips = (props) => {
 			<Trip
 				key={ Math.random() }
 				date={ trip.date }
-				coordinates= { trip.coordinates }
+				places= { trip.places }
 			/> 
 		);
 	});
 		
 	return (
 		<div className='all-trips-container'>
-			hello ???
 			{ console.log(allTrips) }
 			{ allTrips }
 		</div>

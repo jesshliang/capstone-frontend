@@ -5,10 +5,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import PropTypes from 'prop-types';
 
 const styles = {
-  width: "100vw",
-	height: "calc(100vh - 80px)",
+  width: "90vw",
+	height: "65vh",
 	overflow: "hidden",
-  position: "absolute"
 };
 
 const MapComponent = () => {
@@ -44,11 +43,5 @@ const MapComponent = () => {
 
   return <div ref={el => (mapContainer.current = el)} style={styles} />;
 };
-
-// export default MapboxGLMap;
-
-// const MapComponent = ReactMapboxGl({
-// 	accessToken: process.env.REACT_APP_MAP_API
-// });
 
 export default MapComponent;

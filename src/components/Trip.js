@@ -10,7 +10,7 @@ const Trip = (props) => {
 					Date: { props.date }
 				</li>
 				<li>
-					Places: { props.coordinates.length }
+					Places: { props.places }
 				</li>
 			</ul>
 		</section>

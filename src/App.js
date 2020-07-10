@@ -13,20 +13,6 @@ const App = () => {
     setUser('');
 	};
 
-//   <Router>
-//   <div>
-//     {/* A <Switch> looks through its children <Route>s and
-//         renders the first one that matches the current URL. */}
-//     <Switch>
-//       <Route path="/" onLoginCallBack={ onLogin } render={ props => <Home { ...props } user={ user.toString() } onLoginCallBack={ onLogin } />} >
-//         <Home />
-//       </Route>
-//       <Route path="/map-page">
-//         <MapPage onLogoutCallback = { onLogout } />
-//       </Route>
-//     </Switch>
-//   </div>
-// </Router>
   return (
     <div>
 
