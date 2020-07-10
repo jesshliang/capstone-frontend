@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import './Home.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +12,7 @@ import {
 const Home = (props) => {
 
 	const [usernameField, setUsernameField] = useState('');
+	const [userInfo, setUserInfo] = useState([]);
 	const BASE_URL = 'http://twitter.local:5000/';
 
 	const onUpdateField = (event) => {
@@ -18,6 +20,8 @@ const Home = (props) => {
 	};
 
   const onLogin = (event) => {
+		event.preventDefault();
+
 		axios({
       method: 'post',
       url: BASE_URL,
@@ -28,32 +32,54 @@ const Home = (props) => {
 				"Access-Control-Allow-Origin": "*"
 			}
     })
-    .then(() => {
-      console.log("SUCCESS");
+    .then((response) => {
+			props.setUserCallback(usernameField);
+
+			// const information = [];
+			// console.log(typeof information);
+			// for (const trip of response.data.trips) {
+			// 	information.push({
+			// 		date: trip.date,
+			// 		tripCoordinates: trip.coordinates
+			// 	});
+			// };
+
+			// const information = response.data.trips.map(trip => (
+			// 	{
+			// 		date: trip.date,
+			// 		coordinates: trip.coordinates
+			// 	}
+			// ));
+
+			// console.log(typeof information);
+			// props.setUserInformationCallback(information);
+			props.setUserInformationCallback(response.data.trips);
+			// setResponseData(response.data);
     })
     .catch((error) => {
       console.log(error);
 		});
-		
-		event.preventDefault();
-		props.setUserCallback(usernameField);
 	};
 	
 	return (
-		<nav>
+		<div id="homepage">
+			<header>
+				<h1>CAPSTONE</h1>
+			</header>
 
-			<ul>
-				<li>
-					{/* <Link to="/map-page">Map</Link> */}
-				</li>
-			</ul>
+			<main>
+				<form onSubmit={ onLogin }>
+					<input type="text" onChange={ onUpdateField } />
+					<input type="submit" value="Login" onClick={ onLogin } />
+				</form>
+			</main>
 
-			<form className="PlayerSubmissionForm__form" onSubmit={ onLogin }>
-				<input type="text" onChange={ onUpdateField } />
-				<input type="submit" value="Login" onClick={ onLogin } />
-			</form>
-
-		</nav>
+			<footer>
+				<p>
+					Jessica made this.
+				</p>
+			</footer>
+		</div>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,15 +8,16 @@ import {
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import './App.css';
+import axios from 'axios';
 
 const App = () => {
 
   const [user, setUser] = useState('');
+  const [userInformation, setUserInformation] = useState(null);
   
   const onLogout = (event) => {
 		event.preventDefault(); 
     setUser('');
-		console.log(user);
 	};
 
 //   <Router>
@@ -38,10 +39,10 @@ const App = () => {
 
 
       {(user === '') && 
-        <Home setUserCallback = { setUser } />
+        <Home setUserCallback = { setUser } setUserInformationCallback = { setUserInformation } />
       }
-      {(user !== '') && 
-        <Dashboard onLogoutCallback = { onLogout } currentUser={ user } />
+      {(user !== '') &&  (userInformation !== null) &&
+        <Dashboard onLogoutCallback = { onLogout } currentUser={ user } setUserInformationCallback = { setUserInformation } userInformation = { userInformation } />
       }
     </div>
   );
