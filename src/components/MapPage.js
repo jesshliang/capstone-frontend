@@ -7,9 +7,6 @@ const MapPage = () => {
 	return (
 		<div>
 			<MapComponent />
-			<p>
-				{/* Put the list of trips here as COMPONENT */}
-			</p>
 		</div>
 	);
 	

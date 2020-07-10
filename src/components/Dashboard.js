@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MapPage from './MapPage';
+import Trips from './Trips';
 import axios from 'axios';
 
 const Dashboard = (props) => {
@@ -16,20 +17,21 @@ const Dashboard = (props) => {
 	// }, []);
 
 	return (
-		<div>
+		<div id="dashboard">
 			<header>
 				<nav>
 					<p>
 
 						username: { props.currentUser } <br />
 						trips: { props.userInformation[0].coordinates } <br />
-						{ console.log(props.userInformation[0]) }
 					</p>
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
 				</nav>
 			</header>
-
-			<MapPage />
+			<main>
+				<MapPage />
+				<Trips userInformation={ props.userInformation } />			
+			</main>
 		</div>
 	);
 	
