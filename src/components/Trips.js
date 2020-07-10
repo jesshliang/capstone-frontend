@@ -18,6 +18,7 @@ const Trips = (props) => {
 		
 	return (
 		<div className='all-trips-container'>
+			<h1>Your Trips</h1>
 			{ console.log(allTrips) }
 			{ allTrips }
 		</div>

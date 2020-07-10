@@ -9,7 +9,7 @@ const Home = (props) => {
 	const BASE_URL = 'http://twitter.local:5000/';
 
 	const onUpdateField = (event) => {
-		setUsernameField(event.target.value);
+		setUsernameField(event.target.value.toLowerCase());
 	};
 
   const onLogin = (event) => {
