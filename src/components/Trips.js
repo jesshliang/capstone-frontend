@@ -9,6 +9,7 @@ const Trips = (props) => {
 		return (
 			<Trip
 				key={ Math.random() }
+				title={ trip.title }
 				date={ trip.date }
 				places= { trip.places }
 			/> 

@@ -7,6 +7,9 @@ const Trip = (props) => {
 		<section>
 			<ul>
 				<li>
+					Title: { props.title }
+				</li>
+				<li>
 					Date: { props.date }
 				</li>
 				<li>

@@ -11,10 +11,11 @@ const Dashboard = (props) => {
 	return (
 		<div id="dashboard">
 			<header>
+				<section>
+					username: { props.currentUser }
+				</section>
 				<h1>What's my App called?</h1>
 				<section>
-						username: { props.currentUser } / 
-						trips: { props.userInformation[0].places } / 
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
 				</section>
 			</header>
