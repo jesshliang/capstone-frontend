@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import MapComponent from './MapComponent';
 import './MapPage.css';
 
-const MapPage = () => {
+const MapPage = (props) => {
 
 	return (
 		<div className="map-container">
-			<MapComponent />
+			<MapComponent userInformation={ props.userInformation } />
 		</div>
 	);
 	

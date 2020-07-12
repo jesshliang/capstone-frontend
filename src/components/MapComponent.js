@@ -10,18 +10,19 @@ const styles = {
 	overflow: "hidden",
 };
 
-const MapComponent = () => {
+const MapComponent = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
   useEffect(() => {
     mapboxgl.accessToken = process.env.REACT_APP_MAP_API;
+
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova", // stylesheet location
         center: [12.550343, 55.665957],
-        zoom: 8
+        zoom: 5
 			});
 		
       map.on("load", () => {

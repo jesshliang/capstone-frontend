@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Trip from './Trip';
+import './Trips.css';
 
 const Trips = (props) => {
 
@@ -19,7 +20,7 @@ const Trips = (props) => {
 	return (
 		<div className='all-trips-container'>
 			<h1>Your Trips</h1>
-			{ console.log(allTrips) }
+			{/* { console.log(allTrips) } */}
 			{ allTrips }
 		</div>
 	);
