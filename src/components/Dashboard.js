@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MapPage from './MapPage';
 import Trips from './Trips';
+import NewTripForm from './NewTripForm';
 import './Dashboard.css';
 import axios from 'axios';
 
@@ -42,6 +43,7 @@ const Dashboard = (props) => {
 			</header>
 			<main id="dashboard__main_content">
 					<MapPage userInformation={ props.userInformation } coordinates={ coordinates } />
+					<NewTripForm />
 					<Trips userInformation={ props.userInformation } />			
 			</main>
 		</div>
