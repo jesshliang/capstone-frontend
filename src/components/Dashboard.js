@@ -42,7 +42,7 @@ const Dashboard = (props) => {
 			</header>
 			<main id="dashboard__main_content">
 					{console.log(coordinates)}
-					<MapPage userInformation={ props.userInformation } />
+					<MapPage userInformation={ props.userInformation } coordinates={ coordinates } />
 					<Trips userInformation={ props.userInformation } />			
 			</main>
 		</div>

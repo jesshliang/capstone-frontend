@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import mapboxgl from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css'
 import PropTypes from 'prop-types';
@@ -10,6 +9,7 @@ const styles = {
 	overflow: "hidden",
 };
 
+// props.userInformation + props.coordinates
 const MapComponent = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
@@ -21,21 +21,21 @@ const MapComponent = (props) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova", // stylesheet location
-        center: [12.550343, 55.665957],
-        zoom: 5
+        center: [0, 0],
+        zoom: 1
 			});
 		
       map.on("load", () => {
 				setMap(map);
 				map.resize();
-				
-				const marker = new mapboxgl.Marker()
-				.setLngLat([12.550343, 55.665957])
-        .addTo(map);
-
-        const marker2 = new mapboxgl.Marker()
-				.setLngLat([12.6561, 55.6381])
-        .addTo(map);
+        
+        for (let i = 0; i < props.coordinates.length; i ++) {
+          for (const coordinate of props.coordinates[i]) {
+            new mapboxgl.Marker()
+              .setLngLat(coordinate)
+              .addTo(map);
+          }
+        }
 			});
     };
 

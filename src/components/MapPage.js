@@ -7,7 +7,7 @@ const MapPage = (props) => {
 
 	return (
 		<div className="map-container">
-			<MapComponent userInformation={ props.userInformation } />
+			<MapComponent userInformation={ props.userInformation } coordinates={ props.coordinates } />
 		</div>
 	);
 	
