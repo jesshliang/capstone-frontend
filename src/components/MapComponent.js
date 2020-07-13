@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import mapboxgl from "mapbox-gl";
-import 'mapbox-gl/dist/mapbox-gl.css'
+import 'mapbox-gl/dist/mapbox-gl.css';
+import './MapComponent.css';
 import PropTypes from 'prop-types';
 
 const styles = {
@@ -28,10 +29,17 @@ const MapComponent = (props) => {
       map.on("load", () => {
 				setMap(map);
 				map.resize();
-        
+
         for (let i = 0; i < props.coordinates.length; i ++) {
           for (const coordinatePair of props.coordinates[i]) {
-            new mapboxgl.Marker()
+            let el = document.createElement('div');
+            el.style.backgroundImage =
+              `url(${coordinatePair[1]})`;
+            el.style.width = "75px";
+            el.style.height = "75px";
+            el.className = 'marker';
+
+            new mapboxgl.Marker(el)
               .setLngLat(coordinatePair[0])
               .addTo(map);
           }

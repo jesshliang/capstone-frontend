@@ -5,17 +5,13 @@ const Trip = (props) => {
 
 	return (
 		<section>
-			<ul>
-				<li>
-					Title: { props.title }
-				</li>
-				<li>
-					Date: { props.date }
-				</li>
-				<li>
-					Places: { props.places }
-				</li>
-			</ul>
+			<h2>Title: { props.title }</h2>
+			<p>
+				<strong>Date:</strong> { props.date }
+			</p>
+			<p>
+				<strong>Places:</strong> { props.places }
+			</p>
 		</section>
 	);
 	

@@ -15,8 +15,6 @@ const App = () => {
 
   return (
     <div>
-
-
       {(user === '') && 
         <Home setUserCallback = { setUser } setUserInformationCallback = { setUserInformation } />
       }
