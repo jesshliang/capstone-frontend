@@ -30,9 +30,9 @@ const MapComponent = (props) => {
 				map.resize();
         
         for (let i = 0; i < props.coordinates.length; i ++) {
-          for (const coordinate of props.coordinates[i]) {
+          for (const coordinatePair of props.coordinates[i]) {
             new mapboxgl.Marker()
-              .setLngLat(coordinate)
+              .setLngLat(coordinatePair[0])
               .addTo(map);
           }
         }

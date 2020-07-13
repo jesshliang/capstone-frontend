@@ -11,17 +11,17 @@ const Dashboard = (props) => {
 	for (let i = 0; i < props.userInformation.length; i ++) {
 		encodedLocations.push([]);
 		for (const place of props.userInformation[i].places) {
-			encodedLocations[i].push(escape(place));
+			encodedLocations[i].push( escape(place[0]) );
 		};
 	};
 
 	const coordinates = [];
 	for (let i = 0; i < encodedLocations.length; i ++) {
 		coordinates.push([]);
-		for (const place of encodedLocations[i]) {
-			axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoiamVzc2ljYWxpYW5nIiwiYSI6ImNrY2I3N25wazFpOGEzMHF0dHY3aHNkOWUifQ.ItSK1BDpYydbUVyDPvdj6A`)
+		for (let y = 0; y < encodedLocations[i].length; y ++) {
+			axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedLocations[y]}.json?access_token=pk.eyJ1IjoiamVzc2ljYWxpYW5nIiwiYSI6ImNrY2I3N25wazFpOGEzMHF0dHY3aHNkOWUifQ.ItSK1BDpYydbUVyDPvdj6A`)
 				.then((response) => {
-					coordinates[i].push(response.data.features[0].center);
+					coordinates[i].push( [response.data.features[0].center, props.userInformation[i].places[y][1]] );
 				})
 				.catch((error) => {
 					console.log(error);
@@ -41,7 +41,6 @@ const Dashboard = (props) => {
 				</section>
 			</header>
 			<main id="dashboard__main_content">
-					{console.log(coordinates)}
 					<MapPage userInformation={ props.userInformation } coordinates={ coordinates } />
 					<Trips userInformation={ props.userInformation } />			
 			</main>
