@@ -66,8 +66,16 @@ const NewTripForm = (props) => {
 			}
     })
     .then((response) => {
-			console.log(response.data);
+			console.log(response.data.trips);
 			props.setUserInformationCallback(response.data.trips);
+
+			setOtherFields({
+				title: '',
+				month: '',
+				year: ''
+			});
+			setPlaces([]);
+
 			console.log( props.userInformation );
 			console.log( props.coordinates );
     })
