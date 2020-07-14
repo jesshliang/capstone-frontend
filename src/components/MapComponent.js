@@ -24,7 +24,7 @@ const MapComponent = (props) => {
         style: "mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova", // stylesheet location
         center: [0, 0],
         zoom: 1
-			});
+      });
 		
       map.on("load", () => {
 				setMap(map);

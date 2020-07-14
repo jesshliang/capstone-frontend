@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Dropzone from "react-dropzone";
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const NewTripForm = () => {
-	
+const NewTripForm = (props) => {
+
 	const [otherFields, setOtherFields] = useState({
 		title: '',
 		month: '',
@@ -29,27 +29,50 @@ const NewTripForm = () => {
 		const updatedPlaces = [...places];
 		updatedPlaces[index][0] = event.target.value;
 		setPlaces(updatedPlaces);
-		console.log(places);
 	}
 
 	const onPlacesUrlUpdate = (event, index) => {
 		const updatedPlaces = [...places];
 		updatedPlaces[index][1] = event.target.value;
 		setPlaces(updatedPlaces);
-		console.log(places);
 	}
 	
 	const onOtherFieldsUpdate = (event) => {
 		const newOtherFields = {...otherFields};
 		newOtherFields[event.target.name] = event.target.value;
 		setOtherFields(newOtherFields);
-		console.log(otherFields);
 	}
 
 	const onAddNewTrip = (event) => {
 		event.preventDefault();
+
 		console.log(places);
 		console.log(otherFields);
+
+		axios({
+      method: 'post',
+      url: "http://twitter.local:5000/trips",
+      params: {
+				username: props.currentUser,
+				date: `${otherFields["month"]}-${otherFields["year"]}`,
+				title: otherFields["title"],
+				places: places
+			},
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			}
+    })
+    .then((response) => {
+			console.log(response.data);
+			// props.setUserCallback(usernameField);
+			// props.setUserInformationCallback(response.data.trips);
+    })
+    .catch((error) => {
+      console.log(error);
+		});
 	}
 
 	return(
