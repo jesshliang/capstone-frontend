@@ -12,27 +12,37 @@ const Dashboard = (props) => {
 	const [coordinates, setCoordinates] = useState([]);
 
 	useEffect(() => {
-		setEncodedLocations([]);
+		const locations = [];
 		for (let i = 0; i < props.userInformation.length; i ++) {
-			encodedLocations.push([]);
+			locations.push([]);
 			for (const place of props.userInformation[i].places) {
-				encodedLocations[i].push( escape(place[0]) );
+				locations[i].push( escape(place[0]) );
 			};
 		};
-	
-		setCoordinates([]);
-		for (let i = 0; i < encodedLocations.length; i ++) {
-			coordinates.push([]);
-			for (let y = 0; y < encodedLocations[i].length; y ++) {
-				axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedLocations[i][y]}.json?access_token=pk.eyJ1IjoiamVzc2ljYWxpYW5nIiwiYSI6ImNrY2I3N25wazFpOGEzMHF0dHY3aHNkOWUifQ.ItSK1BDpYydbUVyDPvdj6A`)
-					.then((response) => {
-						coordinates[i].push( [response.data.features[0].center, props.userInformation[i].places[y][1]] );
-					})
-					.catch((error) => {
-						console.log(error);
-					})
-			}
+		setEncodedLocations(locations);
+		
+		const localCoordinates = [];
+		const encodingPromises = [];
+		for (let i = 0; i < locations.length; i ++) {
+			localCoordinates.push([]);
+			const localPromises = locations[i].map((place, y) => {
+				return (
+					axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoiamVzc2ljYWxpYW5nIiwiYSI6ImNrY2I3N25wazFpOGEzMHF0dHY3aHNkOWUifQ.ItSK1BDpYydbUVyDPvdj6A`)
+						.then((response) => {
+							localCoordinates[i].push( [response.data.features[0].center, props.userInformation[i].places[y][1]] );
+						})
+						.catch((error) => {
+							console.log(error);
+						})
+				);
+			})
+			encodingPromises.push(...localPromises)
 		}
+
+		Promise.all(encodingPromises)
+			.then(() => {
+				setCoordinates(localCoordinates);
+			});
 	}, [props.userInformation]);
 
 
