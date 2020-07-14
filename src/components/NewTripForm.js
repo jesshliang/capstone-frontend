@@ -67,8 +67,9 @@ const NewTripForm = (props) => {
     })
     .then((response) => {
 			console.log(response.data);
-			// props.setUserCallback(usernameField);
-			// props.setUserInformationCallback(response.data.trips);
+			props.setUserInformationCallback(response.data.trips);
+			console.log( props.userInformation );
+			console.log( props.coordinates );
     })
     .catch((error) => {
       console.log(error);

@@ -46,7 +46,7 @@ const Dashboard = (props) => {
 			</header>
 			<main id="dashboard__main_content">
 					<MapPage userInformation={ props.userInformation } coordinates={ coordinates } />
-					<NewTripForm currentUser={ props.currentUser } />
+					<NewTripForm currentUser={ props.currentUser } userInformation={ props.userInformation } coordinates={ coordinates } setUserInformationCallback = { props.setUserInformationCallback } />
 					<Trips userInformation={ props.userInformation } />			
 			</main>
 		</div>
