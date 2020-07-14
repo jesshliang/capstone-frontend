@@ -37,7 +37,7 @@ const Home = (props) => {
 	return (
 		<div id="homepage">
 			<header>
-				<h1>CAPSTONE</h1>
+				<h1>the travel mApp</h1>
 			</header>
 
 			<main>
