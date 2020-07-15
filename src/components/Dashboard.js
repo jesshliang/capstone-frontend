@@ -52,7 +52,7 @@ const Dashboard = (props) => {
 				<section>
 					username: { props.currentUser }
 				</section>
-				<h1>What's my App called?</h1>
+				<h1>the travel mApp</h1>
 				<section>
 					<button onClick={ props.onLogoutCallback }>Log Out</button>
 				</section>

@@ -1,3 +1,7 @@
 .all-trips-container {
 	width: 90vw;
 }
+
+.all-trips-container h1 {
+	color: #A42E31;
+}

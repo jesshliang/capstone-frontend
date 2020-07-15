@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import './NewTripForm.css';
 
 const NewTripForm = (props) => {
 
@@ -85,36 +86,43 @@ const NewTripForm = (props) => {
 	}
 
 	return(
-		<div>
+		<div className="new_trip_form_container">
 			<h2>Add a New Trip</h2>
 			<form onSubmit={ onAddNewTrip }>
-				<label>
-					Title:<br />
-					<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate }/>
-				</label>
-				<label>
-					Date:<br />
-					<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate }/> / 
-					<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } />
-				</label>
-				<label>
-					Places:<br />
-					{
-						places.map((place, index) => {
-							return (
-								<section key={ index }>
-									<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } />
-									<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } />
-									<button onClick = {(e) => removePlaceField(e, index) }>X</button>
-								</section>
-							);
-						})
-					}
-				</label>
-					<br />
+				<section className="new_trip_form_container--title">
+					<label>
+						<strong>Title </strong><br />
+						<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate }/>
+					</label>
+				</section>
+				<section className="new_trip_form_container--date">
+					<label>
+						<strong>Date </strong><br />
+						<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } maxLength="2" /> /  
+						<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } maxLength="4" />
+					</label>
+				</section>
+				<section className="new_trip_form_container--places">
+					<label>
+						<strong>Places </strong><br />
+						{
+							places.map((place, index) => {
+								return (
+									<section key={ index }>
+										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } /> 
+										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } />
+										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
+									</section>
+								);
+							})
+						}
+					</label>
+				</section>
+				<section className="new_trip_form_container--buttons">
 					<button onClick={ addPlaceField }>Add Place</button>
 					<input type="submit" value="Add New Trip" onSubmit={ onAddNewTrip } />
-				</form>
+				</section>
+			</form>
 		</div>
 	);
 

@@ -1,0 +1,79 @@
+.new_trip_form_container {
+	background-color: #bdd6e0;
+	margin-top: 2em;
+	padding: 1em;
+	text-align: center;
+	width: 35vw;
+}
+
+.new_trip_form_container h2 {
+	color: #A42E31;
+	font-size: 1.7em;
+	margin: 0 0 0.5em;
+}
+
+.new_trip_form_container label {
+	color: #347792;
+}
+
+.new_trip_form_container section {
+	margin-bottom: 1em;
+}
+
+.new_trip_form_container--title input, .new_trip_form_container--date input, .new_trip_form_container--places input {
+	font-size: 0.85em;
+	margin-top: 0.5em;
+	padding: 0.5em;
+}
+
+.new_trip_form_container section strong {
+	font-size: 1.3em;
+}
+
+.new_trip_form_container--title input {
+	width: 30vw;
+}
+
+.new_trip_form_container--date input:first-of-type {
+	width: 1.3em;
+}
+
+.new_trip_form_container--date input:last-of-type {
+	margin-left: 0.2em;
+	width: 2.4em;
+}
+
+.new_trip_form_container--buttons {
+	text-align: center;
+}
+
+.new_trip_form_container--buttons button {
+	margin-right: 1em;
+}
+
+.new_trip_form_container--buttons button, .new_trip_form_container--buttons input, .new_trip_form_container--places button {
+	background-color: #347792;
+	border: none;
+	color: #fff;
+	font-size: 0.9em;
+	padding: 0.7em;
+}
+
+.new_trip_form_container--buttons button:hover , .new_trip_form_container--buttons input:hover {
+	background-color: #A42E31;
+}
+
+.new_trip_form_container--places button {
+	background: none;
+	border: none;
+}
+
+.new_trip_form_container--places button:hover {
+	color: #ffca19;
+	cursor: crosshair;
+}
+
+.new_trip_form_container--places input {
+	margin-right: 0.5em;
+	width: 14vw;
+}

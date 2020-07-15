@@ -1,4 +1,6 @@
 .marker {
 	background-size: cover;
 	background-position: center center;
+	border: 2px solid white;
+	border-radius: 0.7em;
 }
