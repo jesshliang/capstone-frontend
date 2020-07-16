@@ -22,7 +22,7 @@ const MapComponent = ({userInformation, coordinates}) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova", // stylesheet location
-        center: [0, 0],
+        center: [0, 16],
         zoom: 1
       });
 		
@@ -41,7 +41,7 @@ const MapComponent = ({userInformation, coordinates}) => {
             el.style.height = "75px";
             el.className = 'marker';
 
-            let popup = new mapboxgl.Popup({ offset: 25 }).setText(
+            let popup = new mapboxgl.Popup({ offset: 40 }).setText(
               userInformation[i]["places"][y][0].toUpperCase()
             );
 
