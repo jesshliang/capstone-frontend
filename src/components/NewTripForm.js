@@ -76,9 +76,6 @@ const NewTripForm = (props) => {
 				year: ''
 			});
 			setPlaces([]);
-
-			console.log( props.userInformation );
-			console.log( props.coordinates );
     })
     .catch((error) => {
       console.log(error);

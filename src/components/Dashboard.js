@@ -45,6 +45,29 @@ const Dashboard = (props) => {
 			});
 	}, [props.userInformation]);
 
+	const deleteTrip = (id) => {
+		axios({
+      method: 'delete',
+      url: "http://twitter.local:5000/trips",
+      data: {
+				username: props.currentUser,
+				key: id
+			},
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			}
+    })
+    .then((response) => {
+			console.log(response.data.trips);
+			props.setUserInformationCallback(response.data.trips);
+    })
+    .catch((error) => {
+      console.log(error);
+		});
+	}
 
 	return (
 		<div id="dashboard">
@@ -58,9 +81,18 @@ const Dashboard = (props) => {
 				</section>
 			</header>
 			<main id="dashboard__main_content">
-					<MapPage userInformation={ props.userInformation } coordinates={ coordinates } />
-					<NewTripForm currentUser={ props.currentUser } userInformation={ props.userInformation } coordinates={ coordinates } setUserInformationCallback = { props.setUserInformationCallback } />
-					<Trips userInformation={ props.userInformation } />			
+					<MapPage 
+						userInformation={ props.userInformation } 
+						coordinates={ coordinates } 
+					/>
+					<NewTripForm 
+						currentUser={ props.currentUser } 
+						setUserInformationCallback = { props.setUserInformationCallback } 
+					/>
+					<Trips 
+						userInformation={ props.userInformation } 
+						deleteTripCallback = { deleteTrip }
+					/>			
 			</main>
 		</div>
 	);
