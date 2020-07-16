@@ -10,7 +10,7 @@ const Trip = (props) => {
 			<p className="trip_listing_container--date">
 				<em>{ props.date }</em>
 			</p>
-			<h3>Places:</h3> 
+			<h3>Places</h3> 
 			<p className="trip_listing_container--places-container">
 				{ props.places }
 			</p>

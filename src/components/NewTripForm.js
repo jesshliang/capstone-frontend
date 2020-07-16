@@ -92,14 +92,14 @@ const NewTripForm = (props) => {
 				<section className="new_trip_form_container--title">
 					<label>
 						<strong>Title </strong><br />
-						<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate }/>
+						<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate } maxLength="26" required />
 					</label>
 				</section>
 				<section className="new_trip_form_container--date">
 					<label>
 						<strong>Date </strong><br />
-						<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } maxLength="2" /> /  
-						<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } maxLength="4" />
+						<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="2" required /> /  
+						<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="4" required />
 					</label>
 				</section>
 				<section className="new_trip_form_container--places">
@@ -109,8 +109,8 @@ const NewTripForm = (props) => {
 							places.map((place, index) => {
 								return (
 									<section key={ index }>
-										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } /> 
-										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } />
+										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
+										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="40" required />
 										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
 									</section>
 								);

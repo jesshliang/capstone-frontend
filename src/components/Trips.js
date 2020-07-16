@@ -6,10 +6,10 @@ import './Trips.css';
 const Trips = (props) => {
 
 	let allTrips = []
-	allTrips = props.userInformation.map((trip) => {
+	allTrips = props.userInformation.map((trip, index) => {
 		return (
 			<Trip
-				key={ Math.random() }
+				key={ index }
 				title={ trip.title }
 				date={ trip.date }
 				places= { trip.places }

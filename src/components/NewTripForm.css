@@ -35,12 +35,12 @@
 }
 
 .new_trip_form_container--date input:first-of-type {
-	width: 1.3em;
+	width: 2.5em;
 }
 
 .new_trip_form_container--date input:last-of-type {
 	margin-left: 0.2em;
-	width: 2.4em;
+	width: 3.5em;
 }
 
 .new_trip_form_container--buttons {
