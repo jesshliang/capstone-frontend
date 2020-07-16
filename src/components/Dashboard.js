@@ -50,7 +50,7 @@ const Dashboard = (props) => {
 		<div id="dashboard">
 			<header>
 				<section>
-					username: { props.currentUser }
+					{ props.currentUser }
 				</section>
 				<h1>the travel mApp</h1>
 				<section>
