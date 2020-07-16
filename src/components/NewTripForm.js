@@ -110,7 +110,7 @@ const NewTripForm = (props) => {
 								return (
 									<section key={ index }>
 										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
-										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="40" required />
+										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="100" required />
 										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
 									</section>
 								);

@@ -4,3 +4,17 @@
 	border: 2px solid white;
 	border-radius: 0.7em;
 }
+
+.mapboxgl-popup {
+	font-size: 1.2em;
+	max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+	padding: 1em;
+}
+
+.mapboxgl-popup-close-button {
+	font-size: 1.2em;
+	padding: 0 0.2em;
+}

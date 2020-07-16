@@ -33,20 +33,25 @@ const MapComponent = ({userInformation, coordinates}) => {
         console.log({coordinates});
 
         for (let i = 0; i < coordinates.length; i ++) {
-          for (const coordinatePair of coordinates[i]) {
+          for (let y = 0; y < coordinates[i].length; y ++) {
             let el = document.createElement('div');
             el.style.backgroundImage =
-              `url(${coordinatePair[1]})`;
+              `url(${coordinates[i][y][1]})`;
             el.style.width = "75px";
             el.style.height = "75px";
             el.className = 'marker';
 
+            let popup = new mapboxgl.Popup({ offset: 25 }).setText(
+              userInformation[i]["places"][y][0].toUpperCase()
+            );
+
             mapMarkers.push(new mapboxgl.Marker(el)
-              .setLngLat(coordinatePair[0])
+              .setLngLat(coordinates[i][y][0])
+              .setPopup(popup)
               .addTo(map));
           }
         }
-			});
+      });
     };
 
 		if (!map) initializeMap({ setMap, mapContainer });
@@ -56,6 +61,7 @@ const MapComponent = ({userInformation, coordinates}) => {
     if (!map) { return }
 
     console.log({coordinates});
+    console.log({userInformation});
     mapMarkers.forEach((marker) => {
       marker.remove();
     });
@@ -63,16 +69,21 @@ const MapComponent = ({userInformation, coordinates}) => {
     console.log({mapMarkers});
 
     for (let i = 0; i < coordinates.length; i ++) {
-      for (const coordinatePair of coordinates[i]) {
+      for (let y = 0; y < coordinates[i].length; y ++) {
         let el = document.createElement('div');
         el.style.backgroundImage =
-          `url(${coordinatePair[1]})`;
+          `url(${coordinates[i][y][1]})`;
         el.style.width = "75px";
         el.style.height = "75px";
         el.className = 'marker';
 
+        let popup = new mapboxgl.Popup({ offset: 40 }).setText(
+          userInformation[i]["places"][y][0].toUpperCase()
+        );
+
         mapMarkers.push(new mapboxgl.Marker(el)
-          .setLngLat(coordinatePair[0])
+          .setLngLat(coordinates[i][y][0])
+          .setPopup(popup)
           .addTo(map));
       }
     }
