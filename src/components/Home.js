@@ -67,8 +67,8 @@ const Home = (props) => {
 			<main>
 				<TwitterLogin
 					authCallback={authHandler}
-					consumerKey={'luVu8KaYbTvMVCVkgs0wLT48J'}
-					consumerSecret={'ySQwiAO5SUC64bbv8tVitaBzoqbY9KfZbjiOj9nekl21CLK6RS'}
+					consumerKey={process.env.REACT_APP_TWITTER_KEY}
+					consumerSecret={process.env.REACT_APP_TWITTER_SECRET}
 					callbackUrl={'http://twitter.local:3000/'}
 				/>
 {/* 
