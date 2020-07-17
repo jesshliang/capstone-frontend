@@ -17,10 +17,18 @@ const App = () => {
   return (
     <div>
       {(user === '') && 
-        <Home setUserCallback = { setUser } setUserInformationCallback = { setUserInformation } />
+        <Home 
+          setUserCallback = { setUser } 
+          setUserInformationCallback = { setUserInformation } 
+        />
       }
       {(user !== '') && (userInformation !== null) &&
-        <Dashboard onLogoutCallback = { onLogout } currentUser={ user } setUserInformationCallback = { setUserInformation } userInformation = { userInformation } />
+        <Dashboard 
+          onLogoutCallback = { onLogout } 
+          currentUser={ user } 
+          setUserInformationCallback = { setUserInformation } 
+          userInformation = { userInformation } 
+        />
       }
     </div>
   );
