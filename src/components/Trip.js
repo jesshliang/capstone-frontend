@@ -15,7 +15,8 @@ const Trip = ({index, title, date, places, deleteTripCallback}) => {
 				{ places }
 			</p>
 			<button 
-				onClick={()=> deleteTripCallback(index)}
+				onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteTripCallback(index) } }
+				// onClick={()=> deleteTripCallback(index)}
 			>
 				X
 			</button>

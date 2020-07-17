@@ -45,7 +45,7 @@ const Dashboard = (props) => {
 			});
 	}, [props.userInformation]);
 
-	const addNewTrip = ({otherFields, places}) => {
+	const addNewTrip = (otherFields, places) => {
 		axios({
       method: 'post',
       url: "http://twitter.local:5000/trips",
@@ -65,13 +65,6 @@ const Dashboard = (props) => {
     .then((response) => {
 			console.log(response.data.trips);
 			props.setUserInformationCallback(response.data.trips);
-
-			setOtherFields({
-				title: '',
-				month: '',
-				year: ''
-			});
-			setPlaces([]);
     })
     .catch((error) => {
       console.log(error);
