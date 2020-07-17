@@ -45,6 +45,39 @@ const Dashboard = (props) => {
 			});
 	}, [props.userInformation]);
 
+	const addNewTrip = ({otherFields, places}) => {
+		axios({
+      method: 'post',
+      url: "http://twitter.local:5000/trips",
+      params: {
+				username: props.currentUser,
+				date: `${otherFields["month"]}-${otherFields["year"]}`,
+				title: otherFields["title"],
+				places: places
+			},
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			}
+    })
+    .then((response) => {
+			console.log(response.data.trips);
+			props.setUserInformationCallback(response.data.trips);
+
+			setOtherFields({
+				title: '',
+				month: '',
+				year: ''
+			});
+			setPlaces([]);
+    })
+    .catch((error) => {
+      console.log(error);
+		});
+	}
+
 	const deleteTrip = (id) => {
 		axios({
       method: 'delete',
@@ -86,8 +119,7 @@ const Dashboard = (props) => {
 						coordinates={ coordinates } 
 					/>
 					<NewTripForm 
-						currentUser={ props.currentUser } 
-						setUserInformationCallback = { props.setUserInformationCallback } 
+						addNewTripCallback = { addNewTrip }
 					/>
 					<Trips 
 						userInformation={ props.userInformation } 

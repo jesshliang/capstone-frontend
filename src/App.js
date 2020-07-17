@@ -19,7 +19,7 @@ const App = () => {
       {(user === '') && 
         <Home setUserCallback = { setUser } setUserInformationCallback = { setUserInformation } />
       }
-      {(user !== '') &&  (userInformation !== null) &&
+      {(user !== '') && (userInformation !== null) &&
         <Dashboard onLogoutCallback = { onLogout } currentUser={ user } setUserInformationCallback = { setUserInformation } userInformation = { userInformation } />
       }
     </div>

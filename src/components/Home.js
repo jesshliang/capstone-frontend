@@ -6,42 +6,13 @@ import './Home.css';
 
 const Home = (props) => {
 
-	// const [usernameField, setUsernameField] = useState('');
-	const BASE_URL = 'http://twitter.local:5000/';
-
-	// const onUpdateField = (event) => {
-	// 	setUsernameField(event.target.value.toLowerCase());
-	// };
-
-  // const onLogin = (event) => {
-	// 	event.preventDefault();
-
-	// 	axios({
-  //     method: 'post',
-  //     url: BASE_URL,
-  //     params: {
-	// 			username: usernameField,
-	// 		},
-	// 		headers: {
-	// 			"Access-Control-Allow-Origin": "*"
-	// 		}
-  //   })
-  //   .then((response) => {
-	// 		props.setUserCallback(usernameField);
-	// 		props.setUserInformationCallback(response.data.trips);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-	// 	});
-	// };
-
 	const authHandler = (err, data) => {
 		console.log(err, data);
 		console.log(data.screen_name);
 
 		axios({
       method: 'post',
-      url: BASE_URL,
+      url: 'http://twitter.local:5000/',
       params: {
 				username: data.screen_name,
 			},
@@ -71,11 +42,6 @@ const Home = (props) => {
 					consumerSecret={process.env.REACT_APP_TWITTER_SECRET}
 					callbackUrl={'http://twitter.local:3000/'}
 				/>
-{/* 
-				<form onSubmit={ onLogin }>
-					<input type="text" onChange={ onUpdateField } />
-					<input type="submit" value="Login" onClick={ onLogin } />
-				</form> */}
 			</main>
 
 			<footer>
@@ -85,6 +51,7 @@ const Home = (props) => {
 			</footer>
 		</div>
 	);
+	
 };
 
 export default Home;

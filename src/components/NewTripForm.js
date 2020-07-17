@@ -44,48 +44,62 @@ const NewTripForm = (props) => {
 		setOtherFields(newOtherFields);
 	}
 
-	const onAddNewTrip = (event) => {
+	const onSubmit = (event) => {
 		event.preventDefault();
 
 		console.log(places);
 		console.log(otherFields);
+		props.addNewTripCallback(otherFields, places);
 
-		axios({
-      method: 'post',
-      url: "http://twitter.local:5000/trips",
-      params: {
-				username: props.currentUser,
-				date: `${otherFields["month"]}-${otherFields["year"]}`,
-				title: otherFields["title"],
-				places: places
-			},
-			headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "*",
-				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-			}
-    })
-    .then((response) => {
-			console.log(response.data.trips);
-			props.setUserInformationCallback(response.data.trips);
-
-			setOtherFields({
-				title: '',
-				month: '',
-				year: ''
-			});
-			setPlaces([]);
-    })
-    .catch((error) => {
-      console.log(error);
+		setOtherFields({
+			title: '',
+			month: '',
+			year: ''
 		});
+		setPlaces([]);
 	}
+	// const onAddNewTrip = (event) => {
+	// 	event.preventDefault();
+
+	// 	console.log(places);
+	// 	console.log(otherFields);
+
+	// 	axios({
+  //     method: 'post',
+  //     url: "http://twitter.local:5000/trips",
+  //     params: {
+	// 			username: props.currentUser,
+	// 			date: `${otherFields["month"]}-${otherFields["year"]}`,
+	// 			title: otherFields["title"],
+	// 			places: places
+	// 		},
+	// 		headers: {
+	// 			"Content-Type": "application/json",
+	// 			"Access-Control-Allow-Origin": "*",
+	// 			"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+	// 			"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+	// 		}
+  //   })
+  //   .then((response) => {
+	// 		console.log(response.data.trips);
+	// 		props.setUserInformationCallback(response.data.trips);
+
+	// 		setOtherFields({
+	// 			title: '',
+	// 			month: '',
+	// 			year: ''
+	// 		});
+	// 		setPlaces([]);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+	// 	});
+	// }
 
 	return(
 		<div className="new_trip_form_container">
 			<h2>Add a New Trip</h2>
-			<form onSubmit={ onAddNewTrip }>
+			<form onSubmit={ onSubmit }>
 				<section className="new_trip_form_container--title">
 					<label>
 						<strong>Title </strong><br />
@@ -117,7 +131,7 @@ const NewTripForm = (props) => {
 				</section>
 				<section className="new_trip_form_container--buttons">
 					<button onClick={ addPlaceField }>Add Place</button>
-					<input type="submit" value="Add New Trip" onSubmit={ onAddNewTrip } />
+					<input type="submit" value="Add New Trip" onSubmit={ onSubmit } />
 				</section>
 			</form>
 		</div>
