@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './NewTripForm.css';
 
 const NewTripForm = (props) => {
-
+	// Form Fields
 	const [otherFields, setOtherFields] = useState({
 		title: '',
 		month: '',
@@ -58,43 +58,6 @@ const NewTripForm = (props) => {
 		});
 		setPlaces([]);
 	}
-	// const onAddNewTrip = (event) => {
-	// 	event.preventDefault();
-
-	// 	console.log(places);
-	// 	console.log(otherFields);
-
-	// 	axios({
-  //     method: 'post',
-  //     url: "http://twitter.local:5000/trips",
-  //     params: {
-	// 			username: props.currentUser,
-	// 			date: `${otherFields["month"]}-${otherFields["year"]}`,
-	// 			title: otherFields["title"],
-	// 			places: places
-	// 		},
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 			"Access-Control-Allow-Origin": "*",
-	// 			"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-	// 			"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-	// 		}
-  //   })
-  //   .then((response) => {
-	// 		console.log(response.data.trips);
-	// 		props.setUserInformationCallback(response.data.trips);
-
-	// 		setOtherFields({
-	// 			title: '',
-	// 			month: '',
-	// 			year: ''
-	// 		});
-	// 		setPlaces([]);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-	// 	});
-	// }
 
 	return(
 		<div className="new_trip_form_container">
