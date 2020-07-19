@@ -40,7 +40,7 @@ const Home = (props) => {
 					authCallback={authHandler}
 					consumerKey={process.env.REACT_APP_TWITTER_KEY}
 					consumerSecret={process.env.REACT_APP_TWITTER_SECRET}
-					callbackUrl={'http://twitter.local:3000/'}
+					callbackUrl={'https://the-travel-mapp.herokuapp.com/'}
 				/>
 			</main>
 
