@@ -12,7 +12,7 @@ const Home = (props) => {
 
 		axios({
       method: 'post',
-      url: 'http://twitter.local:5000/',
+      url: 'https://the-travel-mapp.herokuapp.com/',
       params: {
 				username: data.screen_name,
 			},
