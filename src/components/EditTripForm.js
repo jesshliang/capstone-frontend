@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
-import './NewTripForm.css';
+import './EditTripForm.css';
 
-const NewTripForm = (props) => {
+const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setToggleEdit}) => {
 	// Form Fields
 	const [otherFields, setOtherFields] = useState({
-		title: '',
-		month: '',
-		year: ''
+		title: title,
+		date: date,
 	});
-	const [places, setPlaces] = useState([["", ""]]);
+	const [places, setPlaces] = useState(tripPlaces);
 
 	const addPlaceField = (event) => {
 		event.preventDefault();
@@ -46,45 +44,63 @@ const NewTripForm = (props) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
+		setToggleEdit(false);
 
 		console.log(places);
 		console.log(otherFields);
-		props.addNewTripCallback(otherFields, places);
+		editTripCallback(otherFields, places, index)
 
-		setOtherFields({
-			title: '',
-			month: '',
-			year: ''
-		});
-		setPlaces([["", ""]]);
+		// setOtherFields({
+		// 	title: title,
+		// 	date: date,
+		// });
+		// setPlaces(tripPlaces);
 	}
 
 	return(
-		<div className="new_trip_form_container">
-			<h2>Add a New Trip</h2>
+		<div className="edit_trip_form_container">
+			<h2>Edit</h2>
 			<form onSubmit={ onSubmit }>
-				<section className="new_trip_form_container--title">
+				<section>
 					<label>
 						<strong>Title </strong><br />
-						<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate } maxLength="26" required />
+						<input 
+							type="text" 
+							value={ otherFields["title"] } 
+							name="title" 
+							onChange={ onOtherFieldsUpdate } 
+							maxLength="26" 
+							required />
 					</label>
 				</section>
-				<section className="new_trip_form_container--date">
+				<section>
 					<label>
 						<strong>Date </strong><br />
-						<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="2" required /> /  
-						<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="4" required />
+						<input 
+							type="text" 
+							value={ otherFields["date"] } 
+							name="date" 
+							onChange={ onOtherFieldsUpdate } 
+							pattern="\d{1,2}-\d{4}" 
+							maxLength="7" 
+							required />
 					</label>
 				</section>
-				<section className="new_trip_form_container--places">
+				<section>
 					<label>
 						<strong>Places </strong><br />
 						{
 							places.map((place, index) => {
 								return (
 									<section key={ index }>
-										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
-										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="100" required />
+										<input 
+											type="text" value={ place[0] } 
+											onChange={(e) => onPlacesUpdate(e, index) } 
+											maxLength="26" required /> 
+										<input 
+											type="text" value={ place[1] } 
+											onChange={(e) => onPlacesUrlUpdate(e, index) } 
+											maxLength="100" required />
 										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
 									</section>
 								);
@@ -92,9 +108,10 @@ const NewTripForm = (props) => {
 						}
 					</label>
 				</section>
-				<section className="new_trip_form_container--buttons">
+				<section>
 					<button onClick={ addPlaceField }>Add Place</button>
-					<input type="submit" value="Add New Trip" onSubmit={ onSubmit } />
+					<button onClick={() => setToggleEdit(false)}>Close</button>
+					<input type="submit" value="Save" onSubmit={ onSubmit } />
 				</section>
 			</form>
 		</div>
@@ -102,4 +119,4 @@ const NewTripForm = (props) => {
 
 };
 
-export default NewTripForm;
+export default EditTripForm;

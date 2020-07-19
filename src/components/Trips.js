@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Trip from './Trip';
 import './Trips.css';
 
-const Trips = (props) => {
 
+const Trips = (props) => {
+	
 	let allTrips = []
 	allTrips = props.userInformation.map((trip, index) => {
 		return (
@@ -14,6 +15,7 @@ const Trips = (props) => {
 				title={ trip.title }
 				date={ trip.date }
 				places= { trip.places }
+				editTripCallback = { props.editTripCallback }
 				deleteTripCallback = { props.deleteTripCallback }
 			/> 
 		);

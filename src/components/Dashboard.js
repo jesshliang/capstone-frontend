@@ -71,6 +71,36 @@ const Dashboard = (props) => {
 		});
 	}
 
+	const editTrip = (otherFields, places, index) => {
+		console.log(otherFields);
+		console.log(places);
+		console.log(index);
+		axios({
+      method: 'patch',
+      url: "http://twitter.local:5000/trips",
+      params: {
+				index: index,
+				username: props.currentUser,
+				date: otherFields["date"],
+				title: otherFields["title"],
+				places: places
+			},
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			}
+    })
+    .then((response) => {
+			console.log(response.data.trips);
+			props.setUserInformationCallback(response.data.trips);
+    })
+    .catch((error) => {
+      console.log(error);
+		});
+	}
+
 	const deleteTrip = (id) => {
 		axios({
       method: 'delete',
@@ -116,6 +146,7 @@ const Dashboard = (props) => {
 					/>
 					<Trips 
 						userInformation={ props.userInformation } 
+						editTripCallback = { editTrip }
 						deleteTripCallback = { deleteTrip }
 					/>			
 			</main>
