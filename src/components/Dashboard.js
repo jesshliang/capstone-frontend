@@ -48,7 +48,7 @@ const Dashboard = (props) => {
 	const addNewTrip = (otherFields, places) => {
 		axios({
       method: 'post',
-      url: "http://twitter.local:5000/trips",
+      url: "https://the-travel-mapp.herokuapp.com/trips",
       params: {
 				username: props.currentUser,
 				date: `${otherFields["month"]}-${otherFields["year"]}`,
@@ -77,7 +77,7 @@ const Dashboard = (props) => {
 		console.log(index);
 		axios({
       method: 'patch',
-      url: "http://twitter.local:5000/trips",
+      url: "https://the-travel-mapp.herokuapp.com/trips",
       params: {
 				index: index,
 				username: props.currentUser,
@@ -104,7 +104,7 @@ const Dashboard = (props) => {
 	const deleteTrip = (id) => {
 		axios({
       method: 'delete',
-      url: "http://twitter.local:5000/trips",
+      url: "https://the-travel-mapp.herokuapp.com/trips",
       data: {
 				username: props.currentUser,
 				key: id
