@@ -5,7 +5,7 @@ import './MapComponent.css';
 import PropTypes from 'prop-types';
 
 const styles = {
-  width: "100vw",
+  width: "90vw",
 	height: "65vh",
 	overflow: "hidden",
 };
