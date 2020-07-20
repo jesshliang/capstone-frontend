@@ -1,5 +1,5 @@
 .new_trip_form_container {
-	background-color: #EDDDD4;
+	background-color: #B3CBB9;
 	margin-top: 2em;
 	padding: 1em;
 	text-align: center;
@@ -51,6 +51,12 @@
 	margin-right: 1em;
 }
 
+/* Cancel Button */
+.new_trip_form_container--buttons button:last-of-type {
+	background-color: #ECA72C;
+	margin-top: 1em;
+}
+
 .new_trip_form_container--buttons button, .new_trip_form_container--buttons input, .new_trip_form_container--places button {
 	background-color: #197278;
 	border: none;
@@ -76,4 +82,23 @@
 .new_trip_form_container--places input {
 	margin-right: 0.5em;
 	width: 14vw;
+}
+
+/* TOGGLE BUTTON */
+
+.new_trip_form_button {
+	background-color: #B3CBB9;
+	color: #C05746;
+	font-size: 1.1em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin: 3em 0 2em;
+	padding: 1em;
+	width: 20em;
+	border: 3px #ddede1 solid;
+	border-radius: 20px;
+}
+
+.new_trip_form_button:hover {
+	font-style: italic;
 }

@@ -11,6 +11,7 @@ const NewTripForm = (props) => {
 		year: ''
 	});
 	const [places, setPlaces] = useState([["", ""]]);
+	const [toggleAddNew, setToggleAddNew] = useState(false);
 
 	const addPlaceField = (event) => {
 		event.preventDefault();
@@ -60,43 +61,55 @@ const NewTripForm = (props) => {
 	}
 
 	return(
-		<div className="new_trip_form_container">
-			<h2>Add a New Trip</h2>
-			<form onSubmit={ onSubmit }>
-				<section className="new_trip_form_container--title">
-					<label>
-						<strong>Title </strong><br />
-						<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate } maxLength="26" required />
-					</label>
-				</section>
-				<section className="new_trip_form_container--date">
-					<label>
-						<strong>Date </strong><br />
-						<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="2" required /> /  
-						<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="4" required />
-					</label>
-				</section>
-				<section className="new_trip_form_container--places">
-					<label>
-						<strong>Places </strong><br />
-						{
-							places.map((place, index) => {
-								return (
-									<section key={ index }>
-										<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
-										<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="100" required />
-										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
-									</section>
-								);
-							})
-						}
-					</label>
-				</section>
-				<section className="new_trip_form_container--buttons">
-					<button onClick={ addPlaceField }>Add Place</button>
-					<input type="submit" value="Add New Trip" onSubmit={ onSubmit } />
-				</section>
-			</form>
+		<div>
+		{(toggleAddNew) ? (
+			<div className="new_trip_form_container">
+				<h2>Add a New Trip</h2>
+				<form onSubmit={ onSubmit }>
+					<section className="new_trip_form_container--title">
+						<label>
+							<strong>Title </strong><br />
+							<input type="text" value={ otherFields["title"] } name="title" onChange={ onOtherFieldsUpdate } maxLength="26" required />
+						</label>
+					</section>
+					<section className="new_trip_form_container--date">
+						<label>
+							<strong>Date </strong><br />
+							<input type="text" placeholder="month" value={ otherFields["month"] } name="month" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="2" required /> /  
+							<input type="text" placeholder="year" value={ otherFields["year"] } name="year" onChange={ onOtherFieldsUpdate } pattern="\d*" maxLength="4" required />
+						</label>
+					</section>
+					<section className="new_trip_form_container--places">
+						<label>
+							<strong>Places </strong><br />
+							{
+								places.map((place, index) => {
+									return (
+										<section key={ index }>
+											<input type="text" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
+											<input type="text" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="100" required />
+											<button onClick = {(e) => removePlaceField(e, index) }>X</button>
+										</section>
+									);
+								})
+							}
+						</label>
+					</section>
+					<section className="new_trip_form_container--buttons">
+						<button onClick={ addPlaceField }>Add Place</button>
+						<input type="submit" value="Add New Trip" onSubmit={ onSubmit } />
+						<br/>
+						<button onClick={() => setToggleAddNew(false)}>
+							Cancel
+						</button>
+					</section>
+				</form>
+			</div>
+			) : (
+				<button onClick={() => setToggleAddNew(true)} className="new_trip_form_button">
+					Add New Trip
+				</button>
+			)}
 		</div>
 	);
 

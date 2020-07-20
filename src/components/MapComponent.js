@@ -21,7 +21,7 @@ const MapComponent = ({userInformation, coordinates}) => {
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/jessicaliang/ckcb79d7d5vit1jq928rxsova", // stylesheet location
+        style: "mapbox://styles/jessicaliang/ckcv0sd9t00861irp6uuv5xh6", // stylesheet location
         center: [0, 16],
         zoom: 1
       });

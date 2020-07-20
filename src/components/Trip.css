@@ -1,6 +1,6 @@
 .trip_listing_container {
-	background-color: #197278;
-	box-shadow: 10px 10px #fbe391;
+	background-color: #C05746;
+	box-shadow: 10px 10px #B3CBB9;
 	margin-bottom: 1.5em;
 	padding: 0 1.7em 1.5em;
 	text-align: center;
@@ -12,7 +12,7 @@
 }
 
 .trip_listing_container h3 {
-	color: #EDDDD4;
+	color: #fbe391;
 	font-size: 1.4em;
 	margin: 0;
 }
@@ -24,7 +24,7 @@
 }
 
 .trip_listing_container--date {
-	color: #fff7db;
+	color: #DDD8B8;
 	font-size: 1.4em;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .trip_listing_container--place {
-	border: 1px solid #283D3B;
+	border: 1px solid #DDD8B8;
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -63,7 +63,7 @@
 }
 
 .trip_listing_container--buttons button:hover {
-	background-color: #283D3B;
+	background-color: #B3CBB9;
 	color: #fff;
 	cursor: crosshair;
 }
