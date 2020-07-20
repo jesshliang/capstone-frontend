@@ -1,5 +1,5 @@
 .new_trip_form_container {
-	background-color: #bdd6e0;
+	background-color: #EDDDD4;
 	margin-top: 2em;
 	padding: 1em;
 	text-align: center;
@@ -7,13 +7,13 @@
 }
 
 .new_trip_form_container h2 {
-	color: #A42E31;
+	color: #C44536;
 	font-size: 1.7em;
 	margin: 0 0 0.5em;
 }
 
 .new_trip_form_container label {
-	color: #347792;
+	color: #197278;
 }
 
 .new_trip_form_container section {
@@ -52,7 +52,7 @@
 }
 
 .new_trip_form_container--buttons button, .new_trip_form_container--buttons input, .new_trip_form_container--places button {
-	background-color: #347792;
+	background-color: #197278;
 	border: none;
 	color: #fff;
 	font-size: 0.9em;

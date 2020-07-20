@@ -1,8 +1,8 @@
 .trip_listing_container {
-	background-color: #8EB1C0;
+	background-color: #197278;
 	box-shadow: 10px 10px #fbe391;
 	margin-bottom: 1.5em;
-	padding: 0.7em;
+	padding: 0 1.7em 1.5em;
 	text-align: center;
 }
 
@@ -12,20 +12,58 @@
 }
 
 .trip_listing_container h3 {
-	color: #A42E31;
+	color: #EDDDD4;
+	font-size: 1.4em;
+	margin: 0;
+}
+
+.trip_list_container--header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .trip_listing_container--date {
 	color: #fff7db;
+	font-size: 1.4em;
+}
+
+.trip_listing_container--places-container {
+	margin: 0 auto;
+	width: 30vw;
 }
 
 .trip_listing_container--places-container img {
-	width: 5em;
-	height: 5em;
+	width: 4em;
+	height: 4em;
+	margin-right: 1em;
 	object-fit: cover;
 }
 
 .trip_listing_container--place {
+	border: 1px solid #283D3B;
+	color: #fff;
 	display: flex;
 	align-items: center;
+	margin: 1em 0;
+	padding: 1em;
+	text-transform:capitalize;
+}
+
+.trip_listing_container--buttons button {
+	background-color: #EDDDD4;
+	border: none;
+	color: #772E25;
+	font-size: 0.9em;
+	padding: 0.7em;
+}
+
+.trip_listing_container--buttons button:first-of-type {
+	margin-right: 1em;
+}
+
+.trip_listing_container--buttons button:hover {
+	background-color: #283D3B;
+	color: #fff;
+	cursor: crosshair;
 }

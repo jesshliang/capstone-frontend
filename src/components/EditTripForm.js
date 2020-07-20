@@ -61,7 +61,7 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 		<div className="edit_trip_form_container">
 			<h2>Edit</h2>
 			<form onSubmit={ onSubmit }>
-				<section>
+				<section className="edit_trip_form_container--title">
 					<label>
 						<strong>Title </strong><br />
 						<input 
@@ -73,7 +73,7 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 							required />
 					</label>
 				</section>
-				<section>
+				<section className="edit_trip_form_container--date">
 					<label>
 						<strong>Date </strong><br />
 						<input 
@@ -86,7 +86,7 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 							required />
 					</label>
 				</section>
-				<section>
+				<section className="edit_trip_form_container--places">
 					<label>
 						<strong>Places </strong><br />
 						{
@@ -108,7 +108,7 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 						}
 					</label>
 				</section>
-				<section>
+				<section className="edit_trip_form_container--buttons">
 					<button onClick={ addPlaceField }>Add Place</button>
 					<button onClick={() => setToggleEdit(false)}>Close</button>
 					<input type="submit" value="Save" onSubmit={ onSubmit } />

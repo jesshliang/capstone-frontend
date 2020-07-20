@@ -1,0 +1,73 @@
+.edit_trip_form_container {
+	margin: 0 auto;
+	padding: 1em;
+	text-align: center;
+	width: 35vw;
+}
+
+.edit_trip_form_container h2 {
+	color: #A42E31;
+	font-size: 1.7em;
+	margin: 0 0 0.5em;
+}
+
+.edit_trip_form_container label {
+	color: #347792;
+}
+
+.edit_trip_form_container section {
+	margin-bottom: 1em;
+}
+
+.edit_trip_form_container--title input, .edit_trip_form_container--date input, .edit_trip_form_container--places input {
+	font-size: 0.85em;
+	margin-top: 0.5em;
+	padding: 0.5em;
+}
+
+.edit_trip_form_container section strong {
+	font-size: 1.3em;
+}
+
+.edit_trip_form_container--title input {
+	width: 30vw;
+}
+
+.edit_trip_form_container--date input {
+	width: 4em;
+}
+
+.edit_trip_form_container--buttons {
+	text-align: center;
+}
+
+.edit_trip_form_container--buttons button {
+	margin-right: 1em;
+}
+
+.edit_trip_form_container--buttons button, .edit_trip_form_container--buttons input, .edit_trip_form_container--places button {
+	background-color: #347792;
+	border: none;
+	color: #fff;
+	font-size: 0.9em;
+	padding: 0.7em;
+}
+
+.edit_trip_form_container--buttons button:hover , .edit_trip_form_container--buttons input:hover {
+	background-color: #A42E31;
+}
+
+.edit_trip_form_container--places button {
+	background: none;
+	border: none;
+}
+
+.edit_trip_form_container--places button:hover {
+	color: #ffca19;
+	cursor: crosshair;
+}
+
+.edit_trip_form_container--places input {
+	margin-right: 0.5em;
+	width: 14vw;
+}
