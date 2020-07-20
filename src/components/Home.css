@@ -1,4 +1,7 @@
 #homepage {
+	/* background-color: #888; */
+	background-image: url("https://i.imgur.com/kJqVi6X.jpg");
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -8,6 +11,14 @@
 }
 
 #homepage header h1 {
-	color: #ffca19;
+	color: #C05746;
 	font-size: 4em;
+}
+
+#homepage footer {
+	color: #444;
+	font-style: italic;
+	line-height: 1.6em;
+	margin-top: 1.5em;
+	text-align: center;
 }
