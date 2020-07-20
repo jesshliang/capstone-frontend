@@ -18,3 +18,14 @@
 .trip_listing_container--date {
 	color: #fff7db;
 }
+
+.trip_listing_container--places-container img {
+	width: 5em;
+	height: 5em;
+	object-fit: cover;
+}
+
+.trip_listing_container--place {
+	display: flex;
+	align-items: center;
+}

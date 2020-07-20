@@ -7,6 +7,14 @@ const Trip = ({index, title, date, places, editTripCallback, deleteTripCallback}
 
 	const [toggleEdit, setToggleEdit] = useState(false);
 
+	const allPlaces = places.map((place, index) => {
+		return (
+			<li key={ index } className="trip_listing_container--place">
+				<img src={ place[1] } alt={ place[0] } />
+			</li>
+		);
+	});
+
 	return (
 		<section className="trip_listing_container">
 			{(toggleEdit === false) ? (
@@ -17,7 +25,7 @@ const Trip = ({index, title, date, places, editTripCallback, deleteTripCallback}
 				</p>
 				<h3>Places</h3> 
 				<p className="trip_listing_container--places-container">
-					{ places }
+					{ allPlaces }
 				</p>
 				<p>
 					<button
