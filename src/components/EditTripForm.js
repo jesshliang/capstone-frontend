@@ -45,9 +45,6 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 	const onSubmit = (event) => {
 		event.preventDefault();
 		setToggleEdit(false);
-
-		console.log(places);
-		console.log(otherFields);
 		editTripCallback(otherFields, places, index)
 	}
 

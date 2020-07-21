@@ -46,9 +46,6 @@ const NewTripForm = (props) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-
-		console.log(places);
-		console.log(otherFields);
 		props.addNewTripCallback(otherFields, places);
 
 		setOtherFields({

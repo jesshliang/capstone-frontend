@@ -7,9 +7,6 @@ import './Home.css';
 const Home = (props) => {
 
 	const authHandler = (err, data) => {
-		console.log({err}, {data});
-		console.log(data.screen_name);
-
 		axios({
       method: 'post',
       url: 'https://the-travel-mapp.herokuapp.com/users',

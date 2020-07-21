@@ -63,7 +63,6 @@ const Dashboard = (props) => {
 			}
     })
     .then((response) => {
-			console.log(response.data.trips);
 			props.setUserInformationCallback(response.data.trips);
     })
     .catch((error) => {
@@ -72,9 +71,6 @@ const Dashboard = (props) => {
 	}
 
 	const editTrip = (otherFields, places, index) => {
-		console.log(otherFields);
-		console.log(places);
-		console.log(index);
 		axios({
       method: 'patch',
       url: "https://the-travel-mapp.herokuapp.com/trips",
@@ -93,7 +89,6 @@ const Dashboard = (props) => {
 			}
     })
     .then((response) => {
-			console.log(response.data.trips);
 			props.setUserInformationCallback(response.data.trips);
     })
     .catch((error) => {
@@ -117,7 +112,6 @@ const Dashboard = (props) => {
 			}
     })
     .then((response) => {
-			console.log(response.data.trips);
 			props.setUserInformationCallback(response.data.trips);
     })
     .catch((error) => {
