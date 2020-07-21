@@ -46,6 +46,8 @@ const MapComponent = ({userInformation, coordinates}) => {
         center: [0, 16],
         zoom: 1
       });
+
+      map.addControl(new mapboxgl.NavigationControl());
 		
       map.on("load", () => {
 				setMap(map);
