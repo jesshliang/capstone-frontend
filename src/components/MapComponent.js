@@ -69,10 +69,7 @@ const MapComponent = ({userInformation, coordinates}) => {
   }, [coordinates, map])
 
   return (
-    <div>
-      <div ref={el => (mapContainer.current = el)} style={styles} />
-      <div>this be where the </div>
-    </div>
+    <div ref={el => (mapContainer.current = el)} style={styles} />
   );
 };
 
