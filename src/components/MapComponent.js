@@ -75,4 +75,9 @@ const MapComponent = ({userInformation, coordinates}) => {
   );
 };
 
+MapComponent.propTypes = {
+	userInformation: PropTypes.array.isRequired,
+	coordinates: PropTypes.array.isRequired
+}
+
 export default MapComponent;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TwitterLogin from "react-twitter-login";
 import axios from 'axios';
@@ -53,6 +53,11 @@ const Home = (props) => {
 		</div>
 	);
 	
+};
+
+Home.propTypes = {
+	setUserCallback: PropTypes.func.isRequired,
+	setUserInformationCallback: PropTypes.func.isRequired
 };
 
 export default Home;

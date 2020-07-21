@@ -59,4 +59,13 @@ const Trip = ({index, title, date, places, editTripCallback, deleteTripCallback}
 	
 };
 
+Trip.propTypes = {
+	index: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	date: PropTypes.string.isRequired,
+	places: PropTypes.array.isRequired,
+	editTripCallback: PropTypes.func.isRequired,
+	deleteTripCallback: PropTypes.func.isRequired
+}
+
 export default Trip;

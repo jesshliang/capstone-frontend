@@ -155,4 +155,11 @@ const Dashboard = (props) => {
 	
 };
 
+Dashboard.propTypes = {
+	onLogoutCallback: PropTypes.func.isRequired,
+	setUserInformationCallback: PropTypes.func.isRequired,
+	currentUser: PropTypes.string.isRequired,
+	userInformation: PropTypes.array.isRequired
+};
+
 export default Dashboard;

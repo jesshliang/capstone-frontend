@@ -49,12 +49,6 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 		console.log(places);
 		console.log(otherFields);
 		editTripCallback(otherFields, places, index)
-
-		// setOtherFields({
-		// 	title: title,
-		// 	date: date,
-		// });
-		// setPlaces(tripPlaces);
 	}
 
 	return(
@@ -118,5 +112,14 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 	);
 
 };
+
+EditTripForm.propTypes = {
+	index: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	date: PropTypes.string.isRequired,
+	places: PropTypes.array.isRequired,
+	editTripCallback: PropTypes.func.isRequired,
+	setToggleEdit: PropTypes.func.isRequired
+}
 
 export default EditTripForm;

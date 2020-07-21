@@ -29,4 +29,10 @@ const Trips = (props) => {
 	);
 };
 
+Trips.propTypes = {
+	userInformation: PropTypes.array.isRequired,
+	editTripCallback: PropTypes.func.isRequired,
+	deleteTripCallback: PropTypes.func.isRequired
+}
+
 export default Trips;

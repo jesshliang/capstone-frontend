@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import './NewTripForm.css';
 
@@ -114,5 +113,9 @@ const NewTripForm = (props) => {
 	);
 
 };
+
+NewTripForm.propTypes = {
+	addNewTripCallback: PropTypes.func.isRequired
+}
 
 export default NewTripForm;
