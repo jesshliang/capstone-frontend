@@ -10,8 +10,8 @@ const Home = (props) => {
 		// console.log({err}, {data});
 		axios({
 			method: 'post',
-			url: 'http://twitter.local:5000/users',
-      // url: 'https://the-travel-mapp.herokuapp.com/users',
+			// url: 'http://twitter.local:5000/users',
+      url: 'https://the-travel-mapp.herokuapp.com/users',
       params: {
 				username: data.screen_name,
 			},
@@ -42,8 +42,8 @@ const Home = (props) => {
 					authCallback={authHandler}
 					consumerKey={process.env.REACT_APP_TWITTER_KEY}
 					consumerSecret={process.env.REACT_APP_TWITTER_SECRET}
-					// callbackUrl={'https://the-travel-mapp.herokuapp.com'}
-					callbackUrl={'http://twitter.local:3000/'}
+					callbackUrl={'https://the-travel-mapp.herokuapp.com'}
+					// callbackUrl={'http://twitter.local:3000/'}
 				/>
 			</main>
 
