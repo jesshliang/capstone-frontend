@@ -10,8 +10,8 @@ const Trip = ({index, title, date, places, editTripCallback, deleteTripCallback}
 	const allPlaces = places.map((place, index) => {
 		return (
 			<li key={ index } className="trip_listing_container--place">
-				<img src={ place[1] } alt={ place[0] } />
-				{ place[0] }
+				<img src={ place.url } alt={ place.location } />
+				{ place.location }
 			</li>
 		);
 	});

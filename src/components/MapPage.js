@@ -15,7 +15,6 @@ const MapPage = (props) => {
 
 MapPage.propTypes = {
 	userInformation: PropTypes.array.isRequired,
-	coordinates: PropTypes.array.isRequired
 }
 
 export default MapPage;

@@ -8,47 +8,11 @@ import axios from 'axios';
 
 const Dashboard = (props) => {
 
-	const [encodedLocations, setEncodedLocations] = useState([]);
-	const [coordinates, setCoordinates] = useState([]);
-
-	useEffect(() => {
-		const locations = [];
-		for (let i = 0; i < props.userInformation.length; i ++) {
-			locations.push([]);
-			for (const place of props.userInformation[i].places) {
-				locations[i].push( escape(place[0]) );
-			};
-		};
-		setEncodedLocations(locations);
-		
-		const localCoordinates = [];
-		const encodingPromises = [];
-		for (let i = 0; i < locations.length; i ++) {
-			localCoordinates.push([]);
-			const localPromises = locations[i].map((place, y) => {
-				return (
-					axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoiamVzc2ljYWxpYW5nIiwiYSI6ImNrY2I3N25wazFpOGEzMHF0dHY3aHNkOWUifQ.ItSK1BDpYydbUVyDPvdj6A`)
-						.then((response) => {
-							localCoordinates[i].push( [response.data.features[0].center, props.userInformation[i].places[y][1]] );
-						})
-						.catch((error) => {
-							console.log(error);
-						})
-				);
-			})
-			encodingPromises.push(...localPromises)
-		}
-
-		Promise.all(encodingPromises)
-			.then(() => {
-				setCoordinates(localCoordinates);
-			});
-	}, [props.userInformation]);
-
 	const addNewTrip = (otherFields, places) => {
 		axios({
-      method: 'post',
-      url: "https://the-travel-mapp.herokuapp.com/trips",
+			method: 'post',
+			url: "http://twitter.local:5000/trips",
+      // url: "https://the-travel-mapp.herokuapp.com/trips",
       params: {
 				username: props.currentUser,
 				date: `${otherFields["month"]}-${otherFields["year"]}`,
@@ -72,8 +36,9 @@ const Dashboard = (props) => {
 
 	const editTrip = (otherFields, places, index) => {
 		axios({
-      method: 'patch',
-      url: "https://the-travel-mapp.herokuapp.com/trips",
+			method: 'patch',
+			url: "http://twitter.local:5000/trips",
+      // url: "https://the-travel-mapp.herokuapp.com/trips",
       params: {
 				index: index,
 				username: props.currentUser,
@@ -98,8 +63,9 @@ const Dashboard = (props) => {
 
 	const deleteTrip = (id) => {
 		axios({
-      method: 'delete',
-      url: "https://the-travel-mapp.herokuapp.com/trips",
+			method: 'delete',
+			url: "http://twitter.local:5000/trips",
+      // url: "https://the-travel-mapp.herokuapp.com/trips",
       data: {
 				username: props.currentUser,
 				key: id
@@ -112,6 +78,7 @@ const Dashboard = (props) => {
 			}
     })
     .then((response) => {
+			console.log(response);
 			props.setUserInformationCallback(response.data.trips);
     })
     .catch((error) => {
@@ -133,7 +100,6 @@ const Dashboard = (props) => {
 			<main id="dashboard__main_content">
 					<MapPage 
 						userInformation={ props.userInformation } 
-						coordinates={ coordinates } 
 					/>
 					<NewTripForm 
 						addNewTripCallback = { addNewTrip }

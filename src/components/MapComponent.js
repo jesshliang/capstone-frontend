@@ -10,34 +10,35 @@ const styles = {
 	overflow: "hidden",
 };
 
-const MapComponent = ({userInformation, coordinates}) => {
+const MapComponent = ({userInformation}) => {
   const [map, setMap] = useState(null);
   const [mapMarkers, setMapMarkers] = useState([]);
   const mapContainer = useRef(null);
 
   const loadMarkers = () => {
     console.log(userInformation);
-    console.log(coordinates);
-    for (let i = 0; i < coordinates.length; i ++) {
-      for (let y = 0; y < coordinates[i].length; y ++) {
+    userInformation.forEach((trip) => {
+      for (const place of trip.places) {
         let el = document.createElement('div');
         el.style.backgroundImage =
-          `url(${coordinates[i][y][1]})`;
+          `url(${place.url})`;
         el.style.width = "75px";
         el.style.height = "75px";
         el.className = 'marker';
 
         let popup = new mapboxgl.Popup({ offset: 40 }).setText(
-          userInformation[i]["places"][y][0].toUpperCase()
+          place.location
         );
 
         mapMarkers.push(new mapboxgl.Marker(el)
-          .setLngLat(coordinates[i][y][0])
+          .setLngLat(place.coordinates)
           .setPopup(popup)
           .addTo(map));
       }
-    }
+
+    });
   }
+
   useEffect(() => {
     mapboxgl.accessToken = process.env.REACT_APP_MAP_API;
 
@@ -70,7 +71,7 @@ const MapComponent = ({userInformation, coordinates}) => {
     mapMarkers.length = 0;
 
     loadMarkers();
-  }, [coordinates, map])
+  }, [userInformation, map])
 
   return (
     <div ref={el => (mapContainer.current = el)} style={styles} />
@@ -79,7 +80,6 @@ const MapComponent = ({userInformation, coordinates}) => {
 
 MapComponent.propTypes = {
 	userInformation: PropTypes.array.isRequired,
-	coordinates: PropTypes.array.isRequired
 }
 
 export default MapComponent;

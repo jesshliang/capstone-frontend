@@ -45,6 +45,8 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 	const onSubmit = (event) => {
 		event.preventDefault();
 		setToggleEdit(false);
+
+		console.log(places);
 		editTripCallback(otherFields, places, index)
 	}
 
@@ -85,12 +87,12 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 								return (
 									<section key={ index }>
 										<input 
-											type="text" value={ place[0] } 
+											type="text" value={ place.location } 
 											onChange={(e) => onPlacesUpdate(e, index) } 
 											placeholder="name of place" 
 											required /> 
 										<input 
-											type="text" value={ place[1] } 
+											type="text" value={ place.url } 
 											onChange={(e) => onPlacesUrlUpdate(e, index) } 
 											placeholder="image url"
 										  required />
@@ -116,7 +118,7 @@ EditTripForm.propTypes = {
 	index: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
-	places: PropTypes.array.isRequired,
+	// places: PropTypes.array.isRequired,
 	editTripCallback: PropTypes.func.isRequired,
 	setToggleEdit: PropTypes.func.isRequired
 }
