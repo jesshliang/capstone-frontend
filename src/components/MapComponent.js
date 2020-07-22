@@ -16,7 +16,6 @@ const MapComponent = ({userInformation}) => {
   const mapContainer = useRef(null);
 
   const loadMarkers = () => {
-    console.log(userInformation);
     userInformation.forEach((trip) => {
       for (const place of trip.places) {
         let el = document.createElement('div');
@@ -35,7 +34,6 @@ const MapComponent = ({userInformation}) => {
           .setPopup(popup)
           .addTo(map));
       }
-
     });
   }
 
@@ -55,7 +53,6 @@ const MapComponent = ({userInformation}) => {
       map.on("load", () => {
 				setMap(map);
         map.resize();
-        loadMarkers();
       });
     };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MapPage from './MapPage';
 import Trips from './Trips';
@@ -78,7 +78,6 @@ const Dashboard = (props) => {
 			}
     })
     .then((response) => {
-			console.log(response);
 			props.setUserInformationCallback(response.data.trips);
     })
     .catch((error) => {
