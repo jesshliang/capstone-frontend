@@ -18,6 +18,10 @@ const MapComponent = ({userInformation}) => {
   const loadMarkers = () => {
     userInformation.forEach((trip) => {
       for (const place of trip.places) {
+        if (place.coordinates === 'invalid') {
+          continue;
+        };
+
         let el = document.createElement('div');
         el.style.backgroundImage =
           `url(${place.url})`;

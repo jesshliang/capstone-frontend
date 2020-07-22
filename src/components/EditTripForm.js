@@ -10,10 +10,14 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 	});
 	const [places, setPlaces] = useState(tripPlaces);
 
+	console.log(places);
 	const addPlaceField = (event) => {
 		event.preventDefault();
 		const newPlaces = [...places];
-		newPlaces.push(["", ""]);
+		newPlaces.push({
+			location: '',
+			url: ''
+		});
 		setPlaces(newPlaces);
 	}
 
@@ -26,13 +30,14 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 
 	const onPlacesUpdate = (event, index) => {
 		const updatedPlaces = [...places];
-		updatedPlaces[index][0] = event.target.value;
+		console.log(updatedPlaces);
+		updatedPlaces[index]["location"] = event.target.value;
 		setPlaces(updatedPlaces);
 	}
 
 	const onPlacesUrlUpdate = (event, index) => {
 		const updatedPlaces = [...places];
-		updatedPlaces[index][1] = event.target.value;
+		updatedPlaces[index]["url"] = event.target.value;
 		setPlaces(updatedPlaces);
 	}
 	
