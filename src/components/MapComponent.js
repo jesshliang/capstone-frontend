@@ -16,6 +16,8 @@ const MapComponent = ({userInformation, coordinates}) => {
   const mapContainer = useRef(null);
 
   const loadMarkers = () => {
+    console.log(userInformation);
+    console.log(coordinates);
     for (let i = 0; i < coordinates.length; i ++) {
       for (let y = 0; y < coordinates[i].length; y ++) {
         let el = document.createElement('div');
