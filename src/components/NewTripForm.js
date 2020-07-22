@@ -82,8 +82,8 @@ const NewTripForm = (props) => {
 								places.map((place, index) => {
 									return (
 										<section key={ index }>
-											<input type="text" placeholder="name of place" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } maxLength="26" required /> 
-											<input type="text" placeholder="image url" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } maxLength="100" required />
+											<input type="text" placeholder="name of place" value={ place[0] } onChange={(e) => onPlacesUpdate(e, index) } required /> 
+											<input type="text" placeholder="image url" value={ place[1] } onChange={(e) => onPlacesUrlUpdate(e, index) } required />
 											<button onClick = {(e) => removePlaceField(e, index) }>X</button>
 										</section>
 									);

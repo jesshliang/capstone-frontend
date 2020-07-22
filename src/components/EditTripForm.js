@@ -87,11 +87,13 @@ const EditTripForm = ({index, title, date, tripPlaces, editTripCallback, setTogg
 										<input 
 											type="text" value={ place[0] } 
 											onChange={(e) => onPlacesUpdate(e, index) } 
-											maxLength="26" required /> 
+											placeholder="name of place" 
+											required /> 
 										<input 
 											type="text" value={ place[1] } 
 											onChange={(e) => onPlacesUrlUpdate(e, index) } 
-											maxLength="100" required />
+											placeholder="image url"
+										  required />
 										<button onClick = {(e) => removePlaceField(e, index) }>X</button>
 									</section>
 								);
