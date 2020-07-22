@@ -13,12 +13,12 @@ const Home = (props) => {
       params: {
 				username: data.screen_name,
 			},
-			// headers: {
-			// 	"Content-Type": "application/json",
-			// 	"Access-Control-Allow-Origin": "*",
-			// 	"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-			// 	"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
-			// }
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			}
     })
     .then((response) => {
 			props.setUserCallback(data.screen_name);
@@ -40,7 +40,7 @@ const Home = (props) => {
 					authCallback={authHandler}
 					consumerKey={process.env.REACT_APP_TWITTER_KEY}
 					consumerSecret={process.env.REACT_APP_TWITTER_SECRET}
-					callbackUrl={'https://the-travel-mapp.herokuapp.com'}
+					callbackUrl={'https://the-travel-mapp.herokuapp.com/'}
 					// callbackUrl={'http://twitter.local:3000/'}
 				/>
 			</main>
