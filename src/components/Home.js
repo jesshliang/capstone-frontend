@@ -13,9 +13,12 @@ const Home = (props) => {
       params: {
 				username: data.screen_name,
 			},
-			headers: {
-				"Access-Control-Allow-Origin": "*"
-			}
+			// headers: {
+			// 	"Content-Type": "application/json",
+			// 	"Access-Control-Allow-Origin": "*",
+			// 	"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+			// 	"Access-Control-Allow-Headers": "Origin, X-Auth-Token, Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			// }
     })
     .then((response) => {
 			props.setUserCallback(data.screen_name);
