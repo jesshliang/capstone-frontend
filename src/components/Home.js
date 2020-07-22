@@ -7,7 +7,7 @@ import './Home.css';
 const Home = (props) => {
 
 	const authHandler = (err, data) => {
-		console.log({err}, {data});
+		// console.log({err}, {data});
 		axios({
 			method: 'post',
 			url: 'http://twitter.local:5000/users',
