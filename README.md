@@ -1,3 +1,8 @@
+# the travel mApp
+An application for logging and visualizing your travels and adventures
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
